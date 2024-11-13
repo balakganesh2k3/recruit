@@ -1,0 +1,82 @@
+/* ExamCard.css */
+
+/* Main exam card container */
+.exam-card {
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: var(--cui-tertiary-bg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+/* Header with icon */
+.exam-card-header {
+  background-color: #007bff;
+  padding: 15px;
+  text-align: center;
+}
+
+.exam-icon {
+  font-size: 30px;
+  color: rgb(248, 240, 240);
+}
+
+/* Card body */
+.exam-card-body {
+  padding: 20px;
+}
+
+/* Title of the exam */
+.exam-card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #faf2f2; /* Set the font color for the title */
+}
+
+
+/* Enrollment and progress status */
+.status {
+  font-size: 14px;
+  color: #888;
+}
+
+.progress {
+  font-size: 16px;
+  color: #f0eded;
+  margin-bottom: 15px;
+}
+
+/* Details section */
+.exam-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Each detail item */
+.detail-item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.detail-item i {
+  font-size: 18px;
+  margin-right: 10px;
+  color: #007bff;
+}
+
+.detail-item span {
+  color: #555;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+  .exam-card {
+    width: 100%;
+  }
+}
