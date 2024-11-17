@@ -1,0 +1,62 @@
+/* src/views/pages/test/testpage.css */
+
+.test-start-page {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.test-instructions {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.test-instructions h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.test-instructions ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: #666;
+}
+
+.test-instructions li {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.test-content h1 {
+  font-size: 1.8em;
+  color: #333;
+}
+
+.test-content p {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.start-test-button {
+  padding: 12px 24px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.start-test-button:hover {
+  background-color: #357ab8;
+}

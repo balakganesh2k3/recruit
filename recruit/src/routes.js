@@ -5,8 +5,8 @@ const Colors = React.lazy(() => import('./views/theme/colors/Fileup'))
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'))
 
 // Base
-const Accordion = React.lazy(() => import('./views/base/accordion/Accordion'))
-const Breadcrumbs = React.lazy(() => import('./views/base/breadcrumbs/Breadcrumbs'))
+const Aptitude = React.lazy(() => import('./views/base/aptitude/Aptitude'))
+const Breadcrumbs = React.lazy(() => import('./views/base/Python/python'))
 const Cards = React.lazy(() => import('./views/base/cards/Cards'))
 const Carousels = React.lazy(() => import('./views/base/carousels/Carousels'))
 const Collapses = React.lazy(() => import('./views/base/collapses/Collapses'))
@@ -22,8 +22,8 @@ const Tables = React.lazy(() => import('./views/base/tables/Tables'))
 const Tooltips = React.lazy(() => import('./views/base/tooltips/Tooltips'))
 
 // Buttons
-const Buttons = React.lazy(() => import('./views/buttons/buttons/Buttons'))
-const ButtonGroups = React.lazy(() => import('./views/buttons/button-groups/ButtonGroups'))
+const Buttons = React.lazy(() => import('./views/buttons/Exams/Buttons'))
+const ButtonGroups = React.lazy(() => import('./views/buttons/Exam/realEx'))
 const Dropdowns = React.lazy(() => import('./views/buttons/dropdowns/Dropdowns'))
 
 //Forms
@@ -55,17 +55,17 @@ const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
   { path: '/theme', name: 'Theme', element: Colors, exact: true },
-  { path: '/theme/colors', name: 'Colors', element: Colors },
+  { path: '/theme/colors', name: 'Resume Upload', element: Colors },
   { path: '/theme/typography', name: 'Typography', element: Typography },
   { path: '/base', name: 'Base', element: Cards, exact: true },
-  { path: '/base/accordion', name: 'Accordion', element: Accordion },
-  { path: '/base/breadcrumbs', name: 'Breadcrumbs', element: Breadcrumbs },
+  { path: '/base/Aptitude', name: 'Aptitude', element: Aptitude },
+  { path: '/base/breadcrumbs', name: 'Python', element: Breadcrumbs },
   { path: '/base/cards', name: 'Cards', element: Cards },
   { path: '/base/carousels', name: 'Carousel', element: Carousels },
   { path: '/base/collapses', name: 'Collapse', element: Collapses },
-  { path: '/base/list-groups', name: 'List Groups', element: ListGroups },
-  { path: '/base/navs', name: 'Navs', element: Navs },
-  { path: '/base/paginations', name: 'Paginations', element: Paginations },
+  { path: '/base/list-groups', name: 'DBMS', element: ListGroups },
+  { path: '/base/navs', name: 'Java', element: Navs },
+  { path: '/base/paginations', name: 'C', element: Paginations },
   { path: '/base/placeholders', name: 'Placeholders', element: Placeholders },
   { path: '/base/popovers', name: 'Popovers', element: Popovers },
   { path: '/base/progress', name: 'Progress', element: Progress },
@@ -73,15 +73,15 @@ const routes = [
   { path: '/base/tabs', name: 'Tabs', element: Tabs },
   { path: '/base/tables', name: 'Tables', element: Tables },
   { path: '/base/tooltips', name: 'Tooltips', element: Tooltips },
-  { path: '/buttons', name: 'Buttons', element: Buttons, exact: true },
-  { path: '/buttons/buttons', name: 'Buttons', element: Buttons },
+  { path: '/buttons', name: 'Exams', element: Buttons, exact: true },
+  { path: '/buttons/buttons', name: 'Mock Exam', element: Buttons },
   { path: '/buttons/dropdowns', name: 'Dropdowns', element: Dropdowns },
-  { path: '/buttons/button-groups', name: 'Button Groups', element: ButtonGroups },
+  { path: '/buttons/button-groups', name: 'Exams', element: ButtonGroups },
   { path: '/charts', name: 'Charts', element: Charts },
   { path: '/forms', name: 'Forms', element: FormControl, exact: true },
-  { path: '/forms/form-control', name: 'Form Control', element: FormControl },
-  { path: '/forms/select', name: 'Select', element: Select },
-  { path: '/forms/checks-radios', name: 'Checks & Radios', element: ChecksRadios },
+  { path: '/forms/form-control', name: 'Mock Interview', element: FormControl },
+  { path: '/forms/select', name: 'AI interview', element: Select },
+  { path: '/forms/checks-radios', name: 'company Interview', element: ChecksRadios },
   { path: '/forms/range', name: 'Range', element: Range },
   { path: '/forms/input-group', name: 'Input Group', element: InputGroup },
   { path: '/forms/floating-labels', name: 'Floating Labels', element: FloatingLabels },
@@ -94,7 +94,7 @@ const routes = [
   { path: '/notifications', name: 'Notifications', element: Alerts, exact: true },
   { path: '/notifications/alerts', name: 'Alerts', element: Alerts },
   { path: '/notifications/badges', name: 'Badges', element: Badges },
-  { path: '/notifications/modals', name: 'Modals', element: Modals },
+  //{ path: '/notifications/modals', name: 'Modals', element: Modals },
   { path: '/notifications/toasts', name: 'Toasts', element: Toasts },
   { path: '/widgets', name: 'Widgets', element: Widgets },
 

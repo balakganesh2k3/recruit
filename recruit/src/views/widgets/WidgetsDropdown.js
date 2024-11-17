@@ -44,13 +44,13 @@ const WidgetsDropdown = (props) => {
           color="primary"
           value={
             <>
-              26K{' '}
+              70%{' '}
               <span className="fs-6 fw-normal">
-                (-12.4% <CIcon icon={cilArrowBottom} />)
+                (<CIcon icon={cilArrowTop} />)
               </span>
             </>
           }
-          title="Users"
+          title="Overall Performance"
           action={
             <CDropdown alignment="end">
               <CDropdownToggle color="transparent" caret={false} className="text-white p-0">
@@ -134,13 +134,13 @@ const WidgetsDropdown = (props) => {
           color="info"
           value={
             <>
-              $6.200{' '}
+             40%{' '}
               <span className="fs-6 fw-normal">
-                (40.9% <CIcon icon={cilArrowTop} />)
+                (<CIcon icon={cilArrowTop} />)
               </span>
             </>
           }
-          title="Income"
+          title="Completed"
           action={
             <CDropdown alignment="end">
               <CDropdownToggle color="transparent" caret={false} className="text-white p-0">
@@ -223,13 +223,13 @@ const WidgetsDropdown = (props) => {
           color="warning"
           value={
             <>
-              2.49%{' '}
+              70%{' '}
               <span className="fs-6 fw-normal">
-                (84.7% <CIcon icon={cilArrowTop} />)
+                (<CIcon icon={cilArrowTop} />)
               </span>
             </>
           }
-          title="Conversion Rate"
+          title="Pass Percentage"
           action={
             <CDropdown alignment="end">
               <CDropdownToggle color="transparent" caret={false} className="text-white p-0">
@@ -295,13 +295,13 @@ const WidgetsDropdown = (props) => {
           color="danger"
           value={
             <>
-              44K{' '}
+              45%{' '}
               <span className="fs-6 fw-normal">
-                (-23.6% <CIcon icon={cilArrowBottom} />)
+                (<CIcon icon={cilArrowBottom} />)
               </span>
             </>
           }
-          title="Sessions"
+          title="Fail Percentage"
           action={
             <CDropdown alignment="end">
               <CDropdownToggle color="transparent" caret={false} className="text-white p-0">

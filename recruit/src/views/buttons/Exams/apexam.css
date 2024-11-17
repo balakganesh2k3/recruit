@@ -1,0 +1,123 @@
+/* src/views/pages/test/AptitudeExamPage.css */
+
+/* src/views/pages/test/AptitudeExamPage.css */
+
+/* src/components/ExamPage.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fb;
+  }
+  
+  .container {
+    width: 90%; /* Increase width for a more spacious layout */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+  }
+  
+  header {
+    background-color: #1E3A8A;
+    color: white;
+    padding: 30px;
+    text-align: center;
+  }
+  
+  header h1 {
+    font-size: 36px; /* Larger font size */
+    margin: 0;
+  }
+  
+  header p {
+    font-size: 20px; /* Increase font size for subtitle */
+    margin: 10px 0;
+  }
+  
+  .user-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px; /* Larger text for user info */
+  }
+  
+  .user-info input[type="search"] {
+    font-size: 18px; /* Larger search input */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 250px;
+  }
+  
+  .exam-question {
+    background-color: rgb(4, 3, 3);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Larger shadow for a pronounced effect */
+    margin-top: 20px;
+  }
+  
+  .question-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px; /* Larger font size for question header */
+    font-weight: bold;
+  }
+  
+  .timer {
+    background-color: #ff6347;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 24px; /* Larger font for timer */
+  }
+  
+  .question-text {
+    margin-top: 30px;
+    font-size: 20px; /* Larger question text */
+  }
+  
+  .options {
+    margin-top: 30px;
+  }
+  
+  label {
+    display: block;
+    margin: 15px 0;
+    font-size: 20px; /* Larger font for options */
+  }
+  
+  label input[type="radio"] {
+    transform: scale(1.5); /* Larger radio buttons */
+    margin-right: 10px;
+  }
+  
+  .buttons {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  button {
+    background-color: #1E3A8A;
+    color: white;
+    border: none;
+    padding: 15px 30px; /* Larger button padding */
+    border-radius: 8px;
+    font-size: 20px; /* Larger font for buttons */
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #374e9c;
+  }
+  
+  button.back {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  button.back:hover {
+    background-color: #ccc;
+  }
+  

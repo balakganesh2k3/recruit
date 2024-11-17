@@ -12,7 +12,7 @@ import {
 } from '@coreui/react'
 import { DocsExample } from 'src/components'
 
-const Accordion = () => {
+const Aptitude= () => {
   return (
     <CRow>
       <CCol xs={12}>

@@ -1,12 +1,22 @@
 import React from 'react';
 import './ExamCard.css'; // Import the CSS file
 
+
+import { useNavigate } from 'react-router-dom';
+
+
 const ExamCard = () => {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate('/start-test'); // Navigate to the test starting page
+  };
+
   return (
-    <div className="exam-card">
+    <div className="exam-card" onClick={handleCardClick} style={{ cursor: 'pointer' }}>
       <div className="exam-card-header">
         <div className="exam-icon">
-          <i className="fas fa-file-alt"></i> {/* Add the icon for file */}
+          <i className="fas fa-file-alt"></i>
         </div>
       </div>
       <div className="exam-card-body">

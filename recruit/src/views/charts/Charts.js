@@ -134,13 +134,13 @@ const Charts = () => {
             <CChartRadar
               data={{
                 labels: [
-                  'Eating',
-                  'Drinking',
-                  'Sleeping',
+                  'Aptitude',
+                  'Programming',
+                  'Communication',
                   'Designing',
                   'Coding',
-                  'Cycling',
-                  'Running',
+                  'Vocabulary',
+                  'reasoning',
                 ],
                 datasets: [
                   {
