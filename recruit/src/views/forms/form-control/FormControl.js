@@ -33,7 +33,7 @@ const FormControl = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <CFormLabel htmlFor="exampleFormControlTextarea1">Interview Key</CFormLabel>
+                  <CFormLabel htmlFor="exampleFormControlTextarea1">Details</CFormLabel>
                   <CFormTextarea id="exampleFormControlTextarea1" rows={3}></CFormTextarea>
                 </div>
               </CForm>

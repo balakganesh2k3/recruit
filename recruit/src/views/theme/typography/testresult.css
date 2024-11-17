@@ -1,0 +1,98 @@
+/* Results.css */
+.results-container {
+    text-align: center;
+    padding: 30px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ffffff, #f0f4f8);
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-family: Arial, sans-serif;
+}
+
+.results-title {
+    font-size: 19px;
+    color: #333;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.results-score {
+    font-size: 20px;
+    color: #555;
+    margin: 10px 0;
+}
+
+.results-status {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 12px 0;
+    padding: 8px 16px;
+    border-radius: 8px;
+    display: inline-block;
+    color: #050404;
+}
+
+.results-status.pass {
+    background-color: #4caf50; /* Green for pass */
+    box-shadow: 0 3px 6px rgba(76, 175, 80, 0.4);
+}
+
+.results-status.fail {
+    background-color: #f44336; /* Red for fail */
+    box-shadow: 0 3px 6px rgba(244, 67, 54, 0.4);
+}
+
+.results-message {
+    font-size: 17px;
+    color: #666;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.results-message.pass {
+    color: #388e3c;
+}
+
+.results-message.fail {
+    color: #d32f2f;
+}
+
+/* Additional Information Styles */
+.additional-info {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    font-size: 16px;
+    color: #555;
+    text-align: left;
+}
+
+.additional-info p {
+    margin: 8px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+}
+
+.additional-info p span {
+    font-weight: bold;
+}
+
+.additional-info p .label {
+    color: #333;
+    flex: 1;
+}
+
+.additional-info p .value {
+    text-align: right;
+    flex: 1;
+    color: #4caf50;
+}
+
+.additional-info p .value.fail {
+    color: #f44336;
+}

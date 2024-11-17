@@ -1,0 +1,11 @@
+/* App.css */
+.App {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    height: 100vh;           /* Full viewport height */
+    margin: 0;
+    padding: 0;
+    background-color: #212631; /* Background color */
+    box-sizing: border-box;
+}

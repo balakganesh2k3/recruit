@@ -33,7 +33,7 @@ const FormControl = React.lazy(() => import('./views/forms/form-control/FormCont
 const InputGroup = React.lazy(() => import('./views/forms/input-group/InputGroup'))
 const Layout = React.lazy(() => import('./views/forms/layout/Layout'))
 const Range = React.lazy(() => import('./views/forms/range/Range'))
-const Select = React.lazy(() => import('./views/forms/select/Select'))
+const Select = React.lazy(() => import('./views/forms/select/Aiint'))
 const Validation = React.lazy(() => import('./views/forms/validation/Validation'))
 
 const Charts = React.lazy(() => import('./views/charts/Charts'))
@@ -54,11 +54,11 @@ const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
-  { path: '/theme', name: 'Theme', element: Colors, exact: true },
+  { path: '/theme', name: 'Resume', element: Colors, exact: true },
   { path: '/theme/colors', name: 'Resume Upload', element: Colors },
-  { path: '/theme/typography', name: 'Typography', element: Typography },
-  { path: '/base', name: 'Base', element: Cards, exact: true },
-  { path: '/base/Aptitude', name: 'Aptitude', element: Aptitude },
+  { path: '/theme/typography', name: 'Test Stats', element: Typography },
+  { path: '/base', name: 'Course Contents', element: Cards, exact: true },
+  { path: '/base/aptitude', name: 'Aptitude', element: Aptitude },
   { path: '/base/breadcrumbs', name: 'Python', element: Breadcrumbs },
   { path: '/base/cards', name: 'Cards', element: Cards },
   { path: '/base/carousels', name: 'Carousel', element: Carousels },
@@ -77,8 +77,8 @@ const routes = [
   { path: '/buttons/buttons', name: 'Mock Exam', element: Buttons },
   { path: '/buttons/dropdowns', name: 'Dropdowns', element: Dropdowns },
   { path: '/buttons/button-groups', name: 'Exams', element: ButtonGroups },
-  { path: '/charts', name: 'Charts', element: Charts },
-  { path: '/forms', name: 'Forms', element: FormControl, exact: true },
+  { path: '/charts', name: 'Report', element: Charts },
+  { path: '/forms', name: 'Interview', element: FormControl, exact: true },
   { path: '/forms/form-control', name: 'Mock Interview', element: FormControl },
   { path: '/forms/select', name: 'AI interview', element: Select },
   { path: '/forms/checks-radios', name: 'company Interview', element: ChecksRadios },
@@ -93,7 +93,7 @@ const routes = [
   { path: '/icons/brands', name: 'Brands', element: Brands },
   { path: '/notifications', name: 'Notifications', element: Alerts, exact: true },
   { path: '/notifications/alerts', name: 'Alerts', element: Alerts },
-  { path: '/notifications/badges', name: 'Badges', element: Badges },
+  { path: '/notifications/badges', name: 'Requests', element: Badges },
   //{ path: '/notifications/modals', name: 'Modals', element: Modals },
   { path: '/notifications/toasts', name: 'Toasts', element: Toasts },
   { path: '/widgets', name: 'Widgets', element: Widgets },

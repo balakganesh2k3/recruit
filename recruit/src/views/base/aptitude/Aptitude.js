@@ -5,74 +5,67 @@ import {
   CCardHeader,
   CCol,
   CRow,
-  CAccordion,
-  CAccordionBody,
-  CAccordionHeader,
-  CAccordionItem,
 } from '@coreui/react'
-import { DocsExample } from 'src/components'
 
-const Aptitude= () => {
+const Breadcrumbs = () => {
   return (
     <CRow>
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Aptitude</strong>
+            <strong>Understanding Aptitude</strong>
           </CCardHeader>
-          <CCardBody>
-            <p className="text-body-secondary small">
-              Click the drop down to expand course contents
-            </p>
-            <DocsExample href="components/accordion">
-              <CAccordion activeItemKey={2}>
-                <CAccordionItem itemKey={1}>
-                  <CAccordionHeader>Quantitative Aptitude</CAccordionHeader>
-                  <CAccordionBody>
-                    <strong>This is the first Lesson&#39;s Quantative Aptitude.</strong> Quantitative Aptitude Questions cover a wide range of topics, including averages, percentages, compound interests, and many more. It requires quantitative skills as well as logical and analytical skills that are needed for a wide range of exams, including those for bank jobs, civil service positions, management programs, and more. Solving Quantitative Aptitude Questions involves using logical reasoning and mathematical concepts to solve complex problems, and requires a deep understanding of the relevant topics. 
 
-It&#39;s also worth noting 
-                  </CAccordionBody>
-                </CAccordionItem>
-                <CAccordionItem itemKey={2}>
-                  <CAccordionHeader>Verbal Aptitude</CAccordionHeader>
-                  <CAccordionBody>
-                    <strong>This is the second Lesson&#39;s Verbal Aptitude.</strong>Verbal Ability is a major component of various competitive exams, it tests a capability of an individual to communicate effectively and accurately using words in a clear sound manner. Verbal Ability is an important measure for interviews and competitive examinations in India. For aspirants who want to excel in Verbal Ability, having a strong vocabulary and the ability to form sentences are essential skills. Verbal ability tests are designed to assess a candidate’s writing skills and abilities in questions like spotting errors, sentence corrections, sentence formation, synonyms, antonyms, and more.
-        
-                  </CAccordionBody>
-                </CAccordionItem>
-                <CAccordionItem itemKey={3}>
-                  <CAccordionHeader>Logical Reasoning</CAccordionHeader>
-                  <CAccordionBody>
-                    <strong>This is the Third Lesson&#39;s Reasoning.</strong> 
-                    Aptitude questions can be challenging, but with the right preparation and practice, you can tackle them with ease. Our comprehensive guide to aptitude questions and answers covers all the essential topics of Aptitude, including Quantitative Aptitude, Logical Reasoning, and Verbal Ability. Whether you’re a student preparing for an examination or looking for a job to improve your problem-solving skills. With our step-by-step guide and sample questions, you will gain the confidence to tackle aptitude questions in interviews and competitive exams with ease..
-                  </CAccordionBody>
-                </CAccordionItem>
-                <CAccordionItem itemKey={3}>
-                  <CAccordionHeader>Diagrammatic Reasoning</CAccordionHeader>
-                  <CAccordionBody>
-                    <strong>This is the Fourth Lesson&#39;s Diagrammatic.</strong> 
-                    The construct of diagrammatic reasoning is about the understanding of concepts and information that is visualized with the use of diagrams and figures. Diagrammatic reasoning tests often have little or no textual support, nor does it contain numerical information.
-                  </CAccordionBody>
-                </CAccordionItem>
-                <CAccordionItem itemKey={3}>
-                  <CAccordionHeader>Abstract Reasoning</CAccordionHeader>
-                  <CAccordionBody>
-                    <strong>This is the Fifth Lesson&#39;s Abstract.</strong> 
-                    The abstract reasoning test assesses your mental ability to understand changes in shapes, generate unique real-time ideas and create new sketches derived from old illustrations. It also tests an individual's ability to derive logical connections between the available sets of data.This type of test is generally used to determine the creativity of a person and their ability to quickly solve novel problems.
-                  </CAccordionBody>
-                </CAccordionItem>
-              </CAccordion>
-            </DocsExample>
+          <CCardBody>
+            <p><strong>What is Aptitude?</strong></p>
+            <p>
+              Aptitude refers to an individual's natural ability to acquire knowledge, perform tasks, or solve problems in specific areas. It measures cognitive abilities and problem-solving skills that are essential in various fields such as education, employment, and daily life.
+            </p>
+
+            <p><strong>Why is Aptitude Important?</strong></p>
+            <p>Aptitude tests are widely used because they help assess:</p>
+            <ul>
+              <li>Logical thinking and reasoning skills</li>
+              <li>Numerical and verbal ability</li>
+              <li>Decision-making and problem-solving capabilities</li>
+              <li>Time management during high-pressure scenarios</li>
+            </ul>
+
+            <p><strong>Applications of Aptitude Tests:</strong></p>
+            <p>Aptitude tests are utilized in various domains:</p>
+            <ul>
+              <li>Recruitment and selection processes in companies</li>
+              <li>College entrance exams and academic assessments</li>
+              <li>Skill evaluation and career guidance</li>
+              <li>Assessing readiness for promotions or leadership roles</li>
+            </ul>
+
+            <p><strong>Common Types of Aptitude Questions:</strong></p>
+            <p>These tests typically include:</p>
+            <ul>
+              <li><strong>Quantitative Aptitude:</strong> Arithmetic, algebra, geometry, and data interpretation</li>
+              <li><strong>Logical Reasoning:</strong> Puzzles, coding-decoding, patterns, and sequences</li>
+              <li><strong>Verbal Ability:</strong> Vocabulary, reading comprehension, and sentence correction</li>
+              <li><strong>Abstract Reasoning:</strong> Diagrams, shapes, and visual patterns</li>
+            </ul>
+
+            <p><strong>Preparation Tips:</strong></p>
+            <ul>
+              <li>Practice regularly to improve speed and accuracy</li>
+              <li>Focus on weak areas and work on time management</li>
+              <li>Take mock tests to simulate real exam conditions</li>
+              <li>Understand the fundamentals of each type of question</li>
+            </ul>
+
+            <p><strong>Good to Know:</strong></p>
+            <p>
+              Aptitude is not just about testing; it’s about improving cognitive abilities. With consistent practice and understanding, anyone can enhance their aptitude skills and achieve better results in assessments.
+            </p>
           </CCardBody>
         </CCard>
-
-        
-     
-       
       </CCol>
     </CRow>
   )
 }
 
-export default Accordion
+export default Breadcrumbs

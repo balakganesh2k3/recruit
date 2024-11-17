@@ -1,4 +1,4 @@
-/* FileUpload.css */
+FileUpload.css
 
 /* Styling for the form */
 form {
@@ -54,12 +54,12 @@ form {
   }
   
   /* Styling for the file details section */
-  div {
+  /* div {
     margin-top: 15px;
     text-align: left;
     font-size: 14px;
     color: #f0eded;
-  }
+  } */
   
   /* Style for the labels and headings */
   h2 {
