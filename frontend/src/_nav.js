@@ -160,28 +160,7 @@ const _nav = [
     ],
   },
   
-  {
-    component: CNavTitle,
-    name: 'Login&Register',
-  },
-  {
-    component: CNavGroup,
-    name: 'Users',
-    icon: <CIcon icon={cilStar} customClassName="nav-icon" />,
-    items: [
-      {
-        component: CNavItem,
-        name: 'Login',
-        to: '/login',
-      },
-      {
-        component: CNavItem,
-        name: 'Register',
-        to: '/register',
-      },
-      
-    ],
-  },
+ 
  
 ]
 
