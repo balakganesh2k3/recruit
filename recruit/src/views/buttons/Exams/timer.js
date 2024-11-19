@@ -1,26 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 function Timer() {
-  const [timeRemaining, setTimeRemaining] = useState(11 * 60 + 57); // 11:57 in seconds
+  const [timeLeft, setTimeLeft] = useState(12 * 60); // 12 minutes in seconds
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (timeRemaining > 0) {
-        setTimeRemaining(timeRemaining - 1);
-      }
+    const timer = setInterval(() => {
+      setTimeLeft((prevTime) => (prevTime > 0 ? prevTime - 1 : 0));
     }, 1000);
 
-    return () => clearInterval(interval); // Cleanup interval on unmount
-  }, [timeRemaining]);
+    return () => clearInterval(timer); // Cleanup on component unmount
+  }, []);
 
-  const minutes = Math.floor(timeRemaining / 60);
-  const seconds = timeRemaining % 60;
+  const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${minutes.toString().padStart(2, "0")}:${secs
+      .toString()
+      .padStart(2, "0")}`;
+  };
 
-  return (
-    <div className="timer" id="timer">
-      {minutes}:{seconds < 10 ? '0' : ''}{seconds}
-    </div>
-  );
+  return <div className="timer">{formatTime(timeLeft)}</div>;
 }
 
 export default Timer;
+

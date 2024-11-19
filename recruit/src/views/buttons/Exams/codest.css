@@ -1,0 +1,47 @@
+.code-start-page {
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 600px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .code-start-page h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .code-start-page p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .code-start-page ul {
+    text-align: left;
+    margin: 0 auto;
+    padding: 0;
+    list-style-type: disc;
+    max-width: 400px;
+  }
+  
+  .code-start-page li {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+  }
+  
+  .start-exam-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .start-exam-button:hover {
+    background-color: #0056b3;
+  }
+  

@@ -10,7 +10,7 @@ const Breadcrumbs = React.lazy(() => import('./views/base/Python/python'))
 const Cards = React.lazy(() => import('./views/base/cards/Cards'))
 const Carousels = React.lazy(() => import('./views/base/carousels/Carousels'))
 const Collapses = React.lazy(() => import('./views/base/collapses/Collapses'))
-const ListGroups = React.lazy(() => import('./views/base/list-groups/ListGroups'))
+const ListGroups = React.lazy(() => import('./views/base/Dbms/dbms'))
 const Navs = React.lazy(() => import('./views/base/navs/Navs'))
 const Paginations = React.lazy(() => import('./views/base/paginations/Paginations'))
 const Placeholders = React.lazy(() => import('./views/base/placeholders/Placeholders'))
@@ -50,6 +50,10 @@ const Modals = React.lazy(() => import('./views/notifications/modals/Modals'))
 const Toasts = React.lazy(() => import('./views/notifications/toasts/Toasts'))
 
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
+
+// Submit Page (new route added)
+const SubmitPage = React.lazy(() => import('./views/buttons/Exams/submit'))
+
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -92,13 +96,14 @@ const routes = [
   { path: '/icons/flags', name: 'Flags', element: Flags },
   { path: '/icons/brands', name: 'Brands', element: Brands },
   { path: '/notifications', name: 'Notifications', element: Alerts, exact: true },
-  { path: '/notifications/alerts', name: 'Alerts', element: Alerts },
+  { path: '/notifications/alerts', name: 'Messages', element: Alerts },
   { path: '/notifications/badges', name: 'Requests', element: Badges },
   //{ path: '/notifications/modals', name: 'Modals', element: Modals },
   { path: '/notifications/toasts', name: 'Toasts', element: Toasts },
   { path: '/widgets', name: 'Widgets', element: Widgets },
 
-
+  // New route for the Submit page
+  { path: '/submit', name: 'Submit', element: SubmitPage },
 ]
 
 export default routes
