@@ -1,6 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
-import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
+import { errorHandler } from "./Middlewares/errorHandler.js";
 import connectDB from "./config/db.js";
 import cookieParser from "cookie-parser";
 import examRoutes from "./routes/examRoutes.js";
@@ -14,7 +14,11 @@ const app = express();
 const port =  5000;
 
 // to parse req boy
-app.use(express.json());
+const cors = require("./Middlewares/cors.js");
+const errorHandler = require("./middleware/errorHandler.js");
+
+app.use(cors);
+app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
@@ -42,8 +46,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-// Custom Middlewares
-app.use(notFound);
+// error handler
 app.use(errorHandler);
 
 // Server
