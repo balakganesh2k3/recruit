@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function QuestionNavigation({
   currentQuestion,
@@ -18,6 +19,11 @@ function QuestionNavigation({
     }
   };
 
+  const navigate = useNavigate();
+  const handleOnSubmit = () =>{
+    navigate("/submit"); 
+  }
+
   return (
     <div className="buttons">
       <button
@@ -32,7 +38,7 @@ function QuestionNavigation({
           Next
         </button>
       ) : (
-        <button className="submit" onClick={onSubmit}>
+        <button className="submit" onClick={handleOnSubmit}>
           Submit
         </button>
       )}

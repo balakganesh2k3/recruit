@@ -1,0 +1,38 @@
+/* General styling for the page */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #f0f8ff, #e6e6fa);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Container for the content */
+  div {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 90%;
+  }
+  
+  /* Styling for the main heading */
+  h1 {
+    font-size: 2em;
+    color: #4caf50;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  
+  /* Styling for the paragraph */
+  p {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.5;
+  }
+  

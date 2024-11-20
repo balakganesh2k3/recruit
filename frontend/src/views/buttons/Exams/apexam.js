@@ -57,27 +57,22 @@ function Exam() {
           setCurrentQuestion={setCurrentQuestion}
           totalQuestions={questions.length}
         />
-        {/* Submit Button */}
-        {currentQuestion === questions.length - 1 && (
-          <button className="submit-button" onClick={handleSubmit}>
-            Submit
-          </button>
-        )}
       </div>
     </div>
   );
 }
 
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Exam />} />
-        <Route path="/submit" element={<SubmitPage />} />
-      </Routes>
-    </Router>
-  );
-}
+// function App() {
+//   return (
+//     // <Router>
+//     //   <Routes>
+//     //     <Route path="/" element={<Exam />} />
+//     //     <Route path="/submit" element={<SubmitPage />} />
+//     //   </Routes>
+//     // </Router>
+//     <></>
+//   );
+// }
 
-export default App;
+export default Exam;
 
