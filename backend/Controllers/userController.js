@@ -1,8 +1,8 @@
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
-const displayError = require("../middleware/displayError.js");
-const User = require("../models/User.js");
+import displayError from "../Middlewares/displayError.js";
+import User from "../Models//userSchema.js";
 
 const UserRegister = async (req, res, next) => {
   try {
@@ -23,7 +23,7 @@ const UserRegister = async (req, res, next) => {
     });
     const createdUser = await user.save();
     const token = jwt.sign(
-      { id: createdUser._id, role: createdUser.role },
+      { id: createdUser._id },
       process.env.JWT,
       {
         expiresIn: "10h",
@@ -49,7 +49,7 @@ const UserLogin = async (req, res, next) => {
       return next(displayError(403, "Incorrect password"));
     }
 
-    const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT, {
+    const token = jwt.sign({ id: user._id }, process.env.JWT, {
       expiresIn: "10h",
     });
     return res.status(200).json({ token, user });
@@ -70,11 +70,10 @@ const getUser = async (req, res, next) => {
 
 const updateUser = async (req, res, next) => {
   try {
-    const { id, role } = req.body;
+    const { id } = req.body;
     const user = await User.findById(id);
-    user.role = role;
-    user.cart = [];
-    user.orders = [];
+    user.prevtests = [];
+    user.prevmetrics = [];
     await user.save();
     return res.status(200).json(user);
   } catch (err) {
@@ -82,9 +81,4 @@ const updateUser = async (req, res, next) => {
   }
 };
 
-module.exports = {
-  UserLogin,
-  UserRegister,
-  getUser,
-  updateUser,
-};
+export default { UserLogin, UserRegister, getUser, updateUser };

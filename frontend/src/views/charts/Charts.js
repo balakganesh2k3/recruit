@@ -11,29 +11,58 @@ import {
 import { DocsCallout } from 'src/components'
 
 const Charts = () => {
-  const random = () => Math.round(Math.random() * 100)
+  const [labels, setLabels] = useState([])
+  const [data, setData] = useState([])
+  const [prevdata, setprevData] = useState([])
+
+  useEffect(() => {
+    const fetchPerformanceData = async () => {
+      const userId = localStorage.getItem('userId') // Retrieve userId from localStorage
+
+      if (!userId) {
+        console.error('User ID not found in localStorage')
+        return
+      }
+
+      try {
+        const response = await axios.get(`/api/userPerformance/${userId}`)
+        const performanceData = response.data
+
+        // Extract labels and data
+        const chartLabels = performanceData.map((item) => item.metric)
+        const chartData = performanceData.map((item) => item.score)
+        const chartprevData = performanceData.map((item) => item.prevscore)
+
+        setLabels(chartLabels)
+        setData(chartData)
+        setprevData(chartprevData)
+      } catch (error) {
+        console.error('Error fetching performance data:', error)
+      }
+    }
+
+    fetchPerformanceData()
+  }, [])
 
   return (
     <CRow>
-      <CCol xs={12}>
-        
-      </CCol>
+      <CCol xs={12}></CCol>
       <CCol xs={6}>
         <CCard className="mb-4">
           <CCardHeader>Bar Chart</CCardHeader>
           <CCardBody>
             <CChartBar
               data={{
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                labels: labels,
                 datasets: [
                   {
-                    label: 'GitHub Commits',
+                    label: labels,
                     backgroundColor: '#f87979',
-                    data: [40, 20, 12, 39, 10, 40, 39, 80, 40],
+                    data: data,
                   },
                 ],
               }}
-              labels="months"
+              labels="mertics"
             />
           </CCardBody>
         </CCard>
@@ -44,23 +73,23 @@ const Charts = () => {
           <CCardBody>
             <CChartLine
               data={{
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                labels: labels,
                 datasets: [
                   {
-                    label: 'My First dataset',
+                    label: 'last test',
                     backgroundColor: 'rgba(220, 220, 220, 0.2)',
                     borderColor: 'rgba(220, 220, 220, 1)',
                     pointBackgroundColor: 'rgba(220, 220, 220, 1)',
                     pointBorderColor: '#fff',
-                    data: [random(), random(), random(), random(), random(), random(), random()],
+                    data: prevdata,
                   },
                   {
-                    label: 'My Second dataset',
+                    label: 'Current test',
                     backgroundColor: 'rgba(151, 187, 205, 0.2)',
                     borderColor: 'rgba(151, 187, 205, 1)',
                     pointBackgroundColor: 'rgba(151, 187, 205, 1)',
                     pointBorderColor: '#fff',
-                    data: [random(), random(), random(), random(), random(), random(), random()],
+                    data: data,
                   },
                 ],
               }}
@@ -74,11 +103,11 @@ const Charts = () => {
           <CCardBody>
             <CChartDoughnut
               data={{
-                labels: ['VueJs', 'EmberJs', 'ReactJs', 'AngularJs'],
+                labels: labels,
                 datasets: [
                   {
                     backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
-                    data: [40, 20, 80, 10],
+                    data: data,
                   },
                 ],
               }}
@@ -92,10 +121,10 @@ const Charts = () => {
           <CCardBody>
             <CChartPie
               data={{
-                labels: ['Red', 'Green', 'Yellow'],
+                labels: labels,
                 datasets: [
                   {
-                    data: [300, 50, 100],
+                    data: data,
                     backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
                     hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
                   },
@@ -111,10 +140,10 @@ const Charts = () => {
           <CCardBody>
             <CChartPolarArea
               data={{
-                labels: ['Red', 'Green', 'Yellow', 'Grey', 'Blue'],
+                labels: labels,
                 datasets: [
                   {
-                    data: [11, 16, 7, 3, 14],
+                    data: data,
                     backgroundColor: ['#FF6384', '#4BC0C0', '#FFCE56', '#E7E9ED', '#36A2EB'],
                   },
                 ],
@@ -140,24 +169,24 @@ const Charts = () => {
                 ],
                 datasets: [
                   {
-                    label: 'My First dataset',
+                    label: 'prev test',
                     backgroundColor: 'rgba(220, 220, 220, 0.2)',
                     borderColor: 'rgba(220, 220, 220, 1)',
                     pointBackgroundColor: 'rgba(220, 220, 220, 1)',
                     pointBorderColor: '#fff',
                     pointHighlightFill: '#fff',
                     pointHighlightStroke: 'rgba(220, 220, 220, 1)',
-                    data: [65, 59, 90, 81, 56, 55, 40],
+                    data: prevdata,
                   },
                   {
-                    label: 'My Second dataset',
+                    label: 'current test',
                     backgroundColor: 'rgba(151, 187, 205, 0.2)',
                     borderColor: 'rgba(151, 187, 205, 1)',
                     pointBackgroundColor: 'rgba(151, 187, 205, 1)',
                     pointBorderColor: '#fff',
                     pointHighlightFill: '#fff',
                     pointHighlightStroke: 'rgba(151, 187, 205, 1)',
-                    data: [28, 48, 40, 19, 96, 27, 100],
+                    data: data,
                   },
                 ],
               }}

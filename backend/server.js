@@ -1,54 +1,32 @@
-import express from "express";
 import dotenv from "dotenv";
-import { errorHandler } from "./Middlewares/errorHandler.js";
+import errorHandler from "./Middlewares/errorHandler.js";
 import connectDB from "./config/db.js";
-import cookieParser from "cookie-parser";
-import examRoutes from "./routes/examRoutes.js";
-import userRoutes from "./routes/userRoutes.js";
-import mongoose from "mongoose";
+import questionRoutes from "./Routes/questionRouter.js";
+import userRoutes from "./Routes/userRouter.js";
+import userPerformanceRoutes from "./Routes/userPerformanceRouter.js";
+import bodyParser from "body-parser";
+import express from "express";
+import cors from "./Middlewares/cors.js";
 
 dotenv.config();
 connectDB();
-
 const app = express();
 const port =  5000;
 
-// to parse req boy
-const cors = require("./Middlewares/cors.js");
-const errorHandler = require("./middleware/errorHandler.js");
-
 app.use(cors);
-app.use(express.json({ limit: "50mb" }));
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
-
+app.use(bodyParser.json());
 
 
 // Routes
 app.use("/api/users", userRoutes);
-app.use("/api/users", examRoutes);
+app.use("/api/questions", questionRoutes);
+app.use('/api/user-performance', userPerformanceRoutes);
 
-// we we are deploying this in production
-// make frontend build then
-if (process.env.NODE_ENV === "production") {
-  const __dirname = path.resolve();
-  // // we making front build folder static to serve from this app
-  app.use(express.static(path.join(__dirname, "/frontend/dist")));
-
-  // // if we get an routes that are not define by us we show then index html file
-  // // every enpoint that is not api/users go to this index file
-  app.get("*", (req, res) =>
-  res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"))
-   );
-} else {
-  app.get("/", (req, res) => {
-    res.send("<h1>server is running</h1>");
-  });
-}
 
 // error handler
 app.use(errorHandler);
-
 // Server
 
 app.listen(port, () => {

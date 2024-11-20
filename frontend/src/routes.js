@@ -54,7 +54,6 @@ const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 // Submit Page (new route added)
 const SubmitPage = React.lazy(() => import('./views/buttons/Exams/submit'))
 
-
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
@@ -107,4 +106,3 @@ const routes = [
 ]
 
 export default routes
-

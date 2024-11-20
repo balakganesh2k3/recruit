@@ -1,5 +1,5 @@
-const jwt = require("jsonwebtoken");
-const displayError = require("./displayError.js");
+import jwt from "jsonwebtoken";
+import displayError from "./displayError.js";
 
 const verifyToken = async (req, res, next) => {
   try {
@@ -16,4 +16,4 @@ const verifyToken = async (req, res, next) => {
   }
 };
 
-module.exports = verifyToken;
+export default verifyToken;

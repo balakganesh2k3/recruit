@@ -1,5 +1,5 @@
-const express = require('express');
-const Question = require('./models/Question'); // Import Question model
+import express from 'express'; // Import express
+import Question from '../Models/questionSchema.js'; // Import Question model
 const questionRouter = express.Router();
 
 // Add a new question
@@ -43,4 +43,4 @@ questionRouter.delete('/questions/:id', async (req, res) => {
   }
 });
 
-module.exports = questionRouter;
+export default questionRouter;

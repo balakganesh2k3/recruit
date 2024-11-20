@@ -5,4 +5,4 @@ const displayError = (status, message) => {
     return err;
   };
   
-  module.exports = displayError;
+    export default displayError;
