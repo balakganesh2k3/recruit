@@ -22,6 +22,8 @@ const UserRegister = async (req, res, next) => {
       password: hashedPassword,
     });
     const createdUser = await user.save();
+    //console.log(createdUser);
+    
     const token = jwt.sign(
       { id: createdUser._id },
       process.env.JWT,
@@ -73,7 +75,6 @@ const updateUser = async (req, res, next) => {
     const { id } = req.body;
     const user = await User.findById(id);
     user.prevtests = [];
-    user.prevmetrics = [];
     await user.save();
     return res.status(200).json(user);
   } catch (err) {

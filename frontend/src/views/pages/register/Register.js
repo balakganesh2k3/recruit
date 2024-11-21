@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   CButton,
   CCard,
@@ -13,8 +14,32 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
+import axios from 'axios'
 
 const Register = () => {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const navigate = useNavigate()
+
+  const handleRegister = (event) => {
+    event.preventDefault()
+    axios
+      .post('http://localhost:5000/api/users/signup', {
+        name: name,
+        email: email,
+        password: password,
+      })
+      .then((response) => {
+        //console.log(response.data)
+        localStorage.setItem('token', response.data.token)
+        localStorage.setItem('userId', response.data.user._id)
+        navigate('/dashboard')
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
   return (
     <div className="bg-body-tertiary min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -29,11 +54,21 @@ const Register = () => {
                     <CInputGroupText>
                       <CIcon icon={cilUser} />
                     </CInputGroupText>
-                    <CFormInput placeholder="Username" autoComplete="username" />
+                    <CFormInput
+                      placeholder="Username"
+                      value={name}
+                      autoComplete="username"
+                      onChange={(e) => setName(e.target.value)}
+                    />
                   </CInputGroup>
                   <CInputGroup className="mb-3">
                     <CInputGroupText>@</CInputGroupText>
-                    <CFormInput placeholder="Email" autoComplete="email" />
+                    <CFormInput
+                      placeholder="Email"
+                      autoComplete="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
                   </CInputGroup>
                   <CInputGroup className="mb-3">
                     <CInputGroupText>
@@ -43,6 +78,8 @@ const Register = () => {
                       type="password"
                       placeholder="Password"
                       autoComplete="new-password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                     />
                   </CInputGroup>
                   <CInputGroup className="mb-4">
@@ -56,7 +93,9 @@ const Register = () => {
                     />
                   </CInputGroup>
                   <div className="d-grid">
-                    <CButton color="success">Create Account</CButton>
+                    <CButton color="success" onClick={handleRegister}>
+                      Create Account
+                    </CButton>
                   </div>
                 </CForm>
               </CCardBody>

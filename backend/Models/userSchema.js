@@ -18,12 +18,7 @@ const UserSchema = new mongoose.Schema(
     },
     prevtests: {
       type: [mongoose.Schema.Types.ObjectId],
-      ref: "Tests",
-      default: [],
-    },
-    prevmetrics: {
-      type: [mongoose.Schema.Types.ObjectId],
-      ref: "Metrics",
+      ref: "userPerformance",
       default: [],
     },
   },

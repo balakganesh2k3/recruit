@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import { CCard, CCardBody, CCol, CCardHeader, CRow } from '@coreui/react'
 import {
   CChartBar,
@@ -8,7 +9,6 @@ import {
   CChartPolarArea,
   CChartRadar,
 } from '@coreui/react-chartjs'
-import { DocsCallout } from 'src/components'
 
 const Charts = () => {
   const [labels, setLabels] = useState([])
@@ -18,29 +18,28 @@ const Charts = () => {
   useEffect(() => {
     const fetchPerformanceData = async () => {
       const userId = localStorage.getItem('userId') // Retrieve userId from localStorage
-
       if (!userId) {
         console.error('User ID not found in localStorage')
         return
       }
-
       try {
-        const response = await axios.get(`/api/userPerformance/${userId}`)
+        const response = await axios.get(`http://localhost:5000/api/user-performance/${userId}`)
         const performanceData = response.data
-
-        // Extract labels and data
-        const chartLabels = performanceData.map((item) => item.metric)
-        const chartData = performanceData.map((item) => item.score)
-        const chartprevData = performanceData.map((item) => item.prevscore)
-
-        setLabels(chartLabels)
-        setData(chartData)
-        setprevData(chartprevData)
+        console.log('Performance Data:', performanceData)
+        if (Array.isArray(performanceData)) {
+          const chartLabels = performanceData.map((item) => item.metric)
+          const chartData = performanceData.map((item) => item.score)
+          const chartprevData = performanceData.map((item) => item.prevscore)
+          setLabels(chartLabels)
+          setData(chartData)
+          setprevData(chartprevData)
+        } else {
+          console.error('performance data is missing or not an array')
+        }
       } catch (error) {
         console.error('Error fetching performance data:', error)
       }
     }
-
     fetchPerformanceData()
   }, [])
 

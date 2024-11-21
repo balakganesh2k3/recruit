@@ -1,5 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 import {
   CButton,
   CCard,
@@ -17,6 +18,26 @@ import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 
 const Login = () => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const navigate = useNavigate()
+  const handleLogin = () => {
+    event.preventDefault()
+    axios
+      .post('http://localhost:5000/api/users/signin', {
+        email: email,
+        password: password,
+      })
+      .then((response) => {
+        //console.log(response.data)
+        localStorage.setItem('token', response.data.token)
+        localStorage.setItem('userId', response.data.user._id)
+        navigate('/dashboard')
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
   return (
     <div className="bg-body-tertiary min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -32,7 +53,12 @@ const Login = () => {
                       <CInputGroupText>
                         <CIcon icon={cilUser} />
                       </CInputGroupText>
-                      <CFormInput placeholder="Username" autoComplete="username" />
+                      <CFormInput
+                        placeholder="Email"
+                        autoComplete="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
                     </CInputGroup>
                     <CInputGroup className="mb-4">
                       <CInputGroupText>
@@ -41,12 +67,14 @@ const Login = () => {
                       <CFormInput
                         type="password"
                         placeholder="Password"
+                        value={password}
                         autoComplete="current-password"
+                        onChange={(e) => setPassword(e.target.value)}
                       />
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <CButton color="primary" className="px-4">
+                        <CButton color="primary" className="px-4" onClick={handleLogin}>
                           Login
                         </CButton>
                       </CCol>
