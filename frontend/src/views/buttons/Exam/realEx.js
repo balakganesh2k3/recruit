@@ -1,16 +1,14 @@
-import React from 'react';
-import './realEx.css'; // Import the CSS file
+import React from 'react'
+import './realEx.css' // Import the CSS file
 
-
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom'
 
 const ExamCard = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleCardClick = () => {
-    navigate('/start-test'); // Navigate to the test starting page
-  };
+    navigate('/start-test') // Navigate to the test starting page
+  }
 
   return (
     <div className="exam-card" onClick={handleCardClick} style={{ cursor: 'pointer' }}>
@@ -43,7 +41,7 @@ const ExamCard = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ExamCard;
+export default ExamCard
