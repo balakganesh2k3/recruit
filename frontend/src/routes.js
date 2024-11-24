@@ -54,6 +54,9 @@ const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 // Submit Page (new route added)
 const SubmitPage = React.lazy(() => import('./views/buttons/Exams/submit'))
 
+const ProfilePage = React.lazy(() => import('./components/header/profile'))
+const EditPage = React.lazy(() => import('./components/header/edit'))
+
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
@@ -61,7 +64,7 @@ const routes = [
   { path: '/theme/colors', name: 'Resume Upload', element: Colors },
   { path: '/theme/typography', name: 'Test Stats', element: Typography },
   { path: '/base', name: 'Course Contents', element: Cards, exact: true },
-  { path: '/base/aptitude', name: 'Aptitude', element: Aptitude },
+  { path: '/aptitude', name: 'Aptitude', element: Aptitude },
   { path: '/base/breadcrumbs', name: 'Python', element: Breadcrumbs },
   { path: '/base/cards', name: 'Cards', element: Cards },
   { path: '/base/carousels', name: 'Carousel', element: Carousels },
@@ -103,6 +106,8 @@ const routes = [
 
   // New route for the Submit page
   { path: '/submit', name: 'Submit', element: SubmitPage },
+   {path: '/profile', element: ProfilePage},
+   { path: '/edit', name: 'edit', element: EditPage }
 ]
 
 export default routes

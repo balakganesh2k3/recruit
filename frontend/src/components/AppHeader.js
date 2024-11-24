@@ -58,7 +58,7 @@ const AppHeader = () => {
             </CNavLink>
           </CNavItem>
           <CNavItem>
-            <CNavLink href="#">Users</CNavLink>
+            <CNavLink href="profile">Users</CNavLink>
           </CNavItem>
           <CNavItem>
             <CNavLink href="#">Settings</CNavLink>
@@ -76,7 +76,7 @@ const AppHeader = () => {
             </CNavLink>
           </CNavItem>
           <CNavItem>
-            <CNavLink href="#">
+            <CNavLink href="Alerts">
               <CIcon icon={cilEnvelopeOpen} size="lg" />
             </CNavLink>
           </CNavItem>

@@ -1,0 +1,117 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1c1e22;
+    color: #fff;
+  }
+  
+  .profile-page {
+    max-width: 800px; /* Set the width to be responsive */
+    margin: 70px auto; /* Center align */
+    padding: 20px;
+    background-color: #282c34; /* Slightly darker background for the card */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .profile-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: 2px solid #fff;
+  }
+  
+  .edit-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .form-container {
+    background-color: #333740;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  .form-group {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .form-group:last-child {
+    margin-right: 0;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #222;
+    color: #fff;
+  }
+  
+  input::placeholder {
+    color: #999;
+  }
+  
+  .email-section {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #333740;
+    border-radius: 10px;
+  }
+  
+  .add-email-button {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-email-button:hover {
+    background-color: #0056b3;
+  }
+  

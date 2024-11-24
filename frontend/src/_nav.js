@@ -36,12 +36,12 @@ const _nav = [
     to: '/theme/colors',
     icon: <CIcon icon={cilDrop} customClassName="nav-icon" />,
   },
-  {
+  /*{
     component: CNavItem,
     name: 'Test Statistics',
     to: '/theme/typography',
     icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
-  },
+  },*/
   {
     component: CNavTitle,
     name: 'Learning',
@@ -121,11 +121,7 @@ const _nav = [
         name: 'AI interview',
         to: '/forms/select',
       },
-      {
-        component: CNavItem,
-        name: 'Company Interview',
-        to: '/forms/checks-radios',
-      },
+      
      
     ],
   },
