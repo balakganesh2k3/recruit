@@ -1,27 +1,17 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+/* eslint-disable react/prop-types */
+import React from 'react'
 
-function QuestionNavigation({
-  currentQuestion,
-  setCurrentQuestion,
-  totalQuestions,
-  onSubmit,
-}) {
+function QuestionNavigation({ currentQuestion, setCurrentQuestion, totalQuestions, onSubmit }) {
   const handleNext = () => {
     if (currentQuestion < totalQuestions - 1) {
-      setCurrentQuestion(currentQuestion + 1);
+      setCurrentQuestion(true) // Pass `true` for navigating forward
     }
-  };
+  }
 
   const handleBack = () => {
     if (currentQuestion > 0) {
-      setCurrentQuestion(currentQuestion - 1);
+      setCurrentQuestion(false) // Pass `false` for navigating backward
     }
-  };
-
-  const navigate = useNavigate();
-  const handleOnSubmit = () =>{
-    navigate("/submit"); 
   }
 
   return (
@@ -38,13 +28,12 @@ function QuestionNavigation({
           Next
         </button>
       ) : (
-        <button className="submit" onClick={handleOnSubmit}>
+        <button className="submit" onClick={onSubmit}>
           Submit
         </button>
       )}
     </div>
-  );
+  )
 }
 
-export default QuestionNavigation;
-
+export default QuestionNavigation

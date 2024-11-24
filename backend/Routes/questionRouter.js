@@ -1,46 +1,18 @@
-import express from 'express'; // Import express
-import Question from '../Models/questionSchema.js'; // Import Question model
+import express from 'express';
+import {
+  addQuestion,
+  getAllQuestions,
+  updateQuestion,
+  deleteQuestion,
+  getQuestionByTag, // Import the new controller
+} from '../Controllers/questionController.js';
+
 const questionRouter = express.Router();
 
-// Add a new question
-questionRouter.post('/questions', async (req, res) => {
-  try {
-    const question = new Question(req.body);
-    await question.save();
-    res.status(201).json(question);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-});
-
-// Get all questions
-questionRouter.get('/questions', async (req, res) => {
-  try {
-    const questions = await Question.find();
-    res.json(questions);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
-
-// Update a question
-questionRouter.put('/questions/:id', async (req, res) => {
-  try {
-    const question = await Question.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    res.json(question);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-});
-
-// Delete a question
-questionRouter.delete('/questions/:id', async (req, res) => {
-  try {
-    await Question.findByIdAndDelete(req.params.id);
-    res.json({ message: 'Question deleted successfully' });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
+questionRouter.post('/', addQuestion); // Add a new question
+questionRouter.get('/', getAllQuestions); // Get all questions
+questionRouter.get('/tag/:tag', getQuestionByTag); // Get questions by tag
+questionRouter.put('/:id', updateQuestion); // Update a question by ID
+questionRouter.delete('/:id', deleteQuestion); // Delete a question by ID
 
 export default questionRouter;

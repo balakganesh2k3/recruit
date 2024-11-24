@@ -1,9 +1,10 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+import React from 'react'
 
 function Question({ question, selectedAnswer, onAnswerSelect }) {
   return (
     <div className="question-text">
-      <p>{question.text}</p>
+      <p>{question.questionText}</p> {/* Display question text */}
       <div className="options">
         {question.options.map((option, index) => (
           <label key={index}>
@@ -11,16 +12,15 @@ function Question({ question, selectedAnswer, onAnswerSelect }) {
               type="radio"
               name="answer"
               value={option}
-              checked={selectedAnswer === option} // Highlight selected answer
-              onChange={() => onAnswerSelect(option)} // Handle answer selection
+              checked={selectedAnswer === option} // Mark selected option
+              onChange={() => onAnswerSelect(option)} // Handle selection
             />
             {option}
           </label>
         ))}
       </div>
     </div>
-  );
+  )
 }
 
-export default Question;
-
+export default Question

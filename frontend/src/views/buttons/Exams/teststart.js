@@ -1,14 +1,14 @@
 // src/views/pages/test/TestStartPage.js
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import './testpage.css';
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import './testpage.css'
 
 const TestStartPage = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleStartTest = () => {
-    navigate('/apexam'); 
-  };
+    navigate('/apexam')
+  }
 
   return (
     <div className="test-start-page">
@@ -25,11 +25,13 @@ const TestStartPage = () => {
       </div>
       <div className="test-content">
         <h1>Get Ready to Start Your Test!</h1>
-        <p>Prepare yourself and start the test when you're ready.</p>
-        <button className="start-test-button" onClick={handleStartTest}>Start Test</button>
+        <p>Prepare yourself and start the test when you are ready.</p>
+        <button className="start-test-button" onClick={handleStartTest}>
+          Start Test
+        </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TestStartPage;
+export default TestStartPage
