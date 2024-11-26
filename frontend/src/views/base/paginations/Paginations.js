@@ -10,7 +10,7 @@ import {
 } from '@coreui/react'
 import { DocsExample } from 'src/components'
 
-const Paginations = () => {
+const Cpro = () => {
   return (
     <CRow>
       <CCol xs={12}>
@@ -36,4 +36,4 @@ const Paginations = () => {
   )
 }
 
-export default Paginations
+export default Cpro

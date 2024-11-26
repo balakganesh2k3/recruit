@@ -55,7 +55,7 @@ const _nav = [
       {
         component: CNavItem,
         name: 'Aptitude',
-        to: '/base/accordion',
+        to: '/base/Aptitude',
       },
       {
         component: CNavItem,

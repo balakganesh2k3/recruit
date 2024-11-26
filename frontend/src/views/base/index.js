@@ -1,4 +1,4 @@
-import Breadcrumbs from './Breadcrumbs'
+import Aptitude from './aptitude/Aptitude'
 import Cards from './Cards'
 import Carousels from './Carousels'
 import Collapses from './Collapses'
@@ -7,14 +7,14 @@ import Jumbotrons from './Jumbotrons'
 import ListGroups from './ListGroups'
 import Navbars from './Navbars'
 import Navs from './Navs'
-import Paginations from './Paginations'
+import Cpro from './Paginations'
 import Popovers from './Popovers'
 import ProgressBar from './ProgressBar'
 import Tabs from './Tabs'
 import Tooltips from './Tooltips'
 
 export {
-  Breadcrumbs,
+  Aptitude,
   Cards,
   Carousels,
   Collapses,
@@ -27,5 +27,5 @@ export {
   ProgressBar,
   Tabs,
   Tooltips,
-  Paginations,
+  Cpro,
 }

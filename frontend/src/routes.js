@@ -62,9 +62,9 @@ const routes = [
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
   { path: '/theme', name: 'Resume', element: Colors, exact: true },
   { path: '/theme/colors', name: 'Resume Upload', element: Colors },
-  { path: '/theme/typography', name: 'Test Stats', element: Typography },
+
   { path: '/base', name: 'Course Contents', element: Cards, exact: true },
-  { path: '/aptitude', name: 'Aptitude', element: Aptitude },
+  { path: '/base/aptitude', name: 'Aptitude', element: Aptitude },
   { path: '/base/breadcrumbs', name: 'Python', element: Breadcrumbs },
   { path: '/base/cards', name: 'Cards', element: Cards },
   { path: '/base/carousels', name: 'Carousel', element: Carousels },
