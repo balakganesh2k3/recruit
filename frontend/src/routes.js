@@ -14,7 +14,7 @@ const ListGroups = React.lazy(() => import('./views/base/Dbms/dbms'))
 const Navs = React.lazy(() => import('./views/base/navs/Navs'))
 const Paginations = React.lazy(() => import('./views/base/paginations/Paginations'))
 const Placeholders = React.lazy(() => import('./views/base/placeholders/Placeholders'))
-const Popovers = React.lazy(() => import('./views/base/popovers/Popovers'))
+
 const Progress = React.lazy(() => import('./views/base/progress/Progress'))
 const Spinners = React.lazy(() => import('./views/base/spinners/Spinners'))
 const Tabs = React.lazy(() => import('./views/base/tabs/Tabs'))
@@ -73,7 +73,7 @@ const routes = [
   { path: '/base/navs', name: 'Java', element: Navs },
   { path: '/base/paginations', name: 'C', element: Paginations },
   { path: '/base/placeholders', name: 'Placeholders', element: Placeholders },
-  { path: '/base/popovers', name: 'Popovers', element: Popovers },
+  
   { path: '/base/progress', name: 'Progress', element: Progress },
   { path: '/base/spinners', name: 'Spinners', element: Spinners },
   { path: '/base/tabs', name: 'Tabs', element: Tabs },
