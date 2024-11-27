@@ -14,9 +14,15 @@ import {
   cilStar,
 } from '@coreui/icons'
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
+import logo from "./assets/images/logo.jpg"
+import { combineReducers } from 'redux'
+
 
 const _nav = [
+  
   {
+
+
     component: CNavItem,
     name: 'Dashboard',
     to: '/dashboard',
@@ -93,11 +99,7 @@ const _nav = [
     to: '/buttons',
     icon: <CIcon icon={cilCursor} customClassName="nav-icon" />,
     items: [
-      {
-        component: CNavItem,
-        name: 'Mock Exam',
-        to: '/buttons/buttons',
-      },
+     
       {
         component: CNavItem,
         name: 'Exam',
@@ -111,11 +113,7 @@ const _nav = [
     name: 'Interview',
     icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
     items: [
-      {
-        component: CNavItem,
-        name: 'Mock Interview',
-        to: '/forms/form-control',
-      },
+   
       {
         component: CNavItem,
         name: 'AI interview',
@@ -142,16 +140,7 @@ const _nav = [
         name: 'Messages',
         to: '/notifications/alerts',
       },
-      {
-        component: CNavItem,
-        name: 'Requests',
-        to: '/notifications/badges',
-      },
-      {
-        component: CNavItem,
-        name: 'Progress',
-        to: '/notifications/modals',
-      },
+      
      
     ],
   },

@@ -11,7 +11,7 @@ const Cards = React.lazy(() => import('./views/base/cards/Cards'))
 const Carousels = React.lazy(() => import('./views/base/carousels/Carousels'))
 const Collapses = React.lazy(() => import('./views/base/collapses/Collapses'))
 const ListGroups = React.lazy(() => import('./views/base/Dbms/dbms'))
-const Navs = React.lazy(() => import('./views/base/navs/Navs'))
+const Navs = React.lazy(() => import('./views/base/navs/java'))
 const Paginations = React.lazy(() => import('./views/base/paginations/Paginations'))
 const Placeholders = React.lazy(() => import('./views/base/placeholders/Placeholders'))
 

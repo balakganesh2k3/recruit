@@ -50,21 +50,21 @@ import MainChart from './MainChart'
 
 const Dashboard = () => {
   const progressExample = [
-    { title: 'Aptitude Questions', value: '244/500', percent: 48.8, color: 'success' },
-    { title: 'Programming', value: '300/600', percent: 50, color: 'Success' },
+    { title: 'Aptitude Questions', value: '24/50', percent: 48.8, color: 'success' },
+    { title: 'Programming', value: '35/60', percent: 50, color: 'Success' },
     { title: 'Mock Interview', value: '9/20', percent: 40, color: 'warning' },
     { title: 'Mock Test', value: '20/50', percent: 40, color: 'warning' },
     { title: 'Exam', value: 'Average Rate', percent: 40.15, color: 'primary' },
   ]
 
   const progressGroupExample1 = [
-    { title: 'Monday', value1: 34, value2: 78 },
-    { title: 'Tuesday', value1: 56, value2: 94 },
-    { title: 'Wednesday', value1: 12, value2: 67 },
-    { title: 'Thursday', value1: 43, value2: 91 },
-    { title: 'Friday', value1: 22, value2: 73 },
-    { title: 'Saturday', value1: 53, value2: 82 },
-    { title: 'Sunday', value1: 9, value2: 69 },
+    { title: 'Computer network', value1: 34, value2: 78 },
+    { title: 'Operating System', value1: 56, value2: 94 },
+    { title: 'Data Structures', value1: 12, value2: 67 },
+    { title: 'Cloud Computing', value1: 43, value2: 91 },
+    { title: 'Software Engineering', value1: 22, value2: 73 },
+    { title: 'Design Analysis and Algorithm', value1: 53, value2: 82 },
+    { title: 'Theory of computation', value1: 9, value2: 69 },
   ]
 
   const progressGroupExample2 = [
@@ -150,7 +150,7 @@ const Dashboard = () => {
                     <CCol xs={6}>
                       <div className="border-start border-start-4 border-start-info py-1 px-3">
                         <div className="text-body-secondary text-truncate small">Solved Questions</div>
-                        <div className="fs-5 fw-semibold">9,123</div>
+                        <div className="fs-5 fw-semibold">35</div>
                       </div>
                     </CCol>
                     <CCol xs={6}>
@@ -158,7 +158,7 @@ const Dashboard = () => {
                         <div className="text-body-secondary text-truncate small">
                           total Questions
                         </div>
-                        <div className="fs-5 fw-semibold">22,643</div>
+                        <div className="fs-5 fw-semibold">60</div>
                       </div>
                     </CCol>
                   </CRow>
@@ -180,7 +180,7 @@ const Dashboard = () => {
                     <CCol xs={6}>
                       <div className="border-start border-start-4 border-start-warning py-1 px-3 mb-3">
                         <div className="text-body-secondary text-truncate small">Testcases</div>
-                        <div className="fs-5 fw-semibold">78,623</div>
+                        <div className="fs-5 fw-semibold">70</div>
                       </div>
                     </CCol>
                     
