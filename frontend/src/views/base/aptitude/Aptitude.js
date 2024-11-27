@@ -7,7 +7,7 @@ import {
   CRow,
 } from '@coreui/react'
 
-const Breadcrumbs = () => {
+const Aptitude = () => {
   return (
     <CRow>
       <CCol xs={12}>
@@ -68,4 +68,4 @@ const Breadcrumbs = () => {
   )
 }
 
-export default Breadcrumbs
+export default Aptitude

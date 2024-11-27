@@ -11,7 +11,7 @@ import {
 } from '@coreui/react'
 import { DocsExample } from 'src/components'
 
-const Breadcrumbs = () => {
+const Python = () => {
   return (
     <CRow>
       <CCol xs={12}>
@@ -67,4 +67,4 @@ const Breadcrumbs = () => {
 
 }
 
-export default Breadcrumbs
+export default Python
