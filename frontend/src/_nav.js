@@ -19,6 +19,26 @@ import { combineReducers } from 'redux'
 
 
 const _nav = [
+  {
+    // Logo Section
+    component: 'div', // Wrapper to display the logo
+    className: 'nav-logo',
+    custom: true, // This is a custom element, not a navigation item
+    children: (
+      <div style={{ textAlign: 'center', padding: '10px' }}>
+        <img
+          src={logo}
+          alt="Logo"
+          style={{
+            width: '150px',
+            height: 'auto',
+            borderRadius: '10px',
+            marginBottom: '10px',
+          }}
+        />
+      </div>
+    ),
+  },
   
   {
 

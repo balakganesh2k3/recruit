@@ -26,13 +26,12 @@ const Buttons = React.lazy(() => import('./views/buttons/Exams/Buttons'))
 const ButtonGroups = React.lazy(() => import('./views/buttons/Exam/realEx'))
 const Dropdowns = React.lazy(() => import('./views/buttons/dropdowns/Dropdowns'))
 
-//Forms
-const ChecksRadios = React.lazy(() => import('./views/forms/checks-radios/ChecksRadios'))
-const FloatingLabels = React.lazy(() => import('./views/forms/floating-labels/FloatingLabels'))
+
+
 const FormControl = React.lazy(() => import('./views/forms/form-control/FormControl'))
-const InputGroup = React.lazy(() => import('./views/forms/input-group/InputGroup'))
-const Layout = React.lazy(() => import('./views/forms/layout/Layout'))
-const Range = React.lazy(() => import('./views/forms/range/Range'))
+
+
+
 const Select = React.lazy(() => import('./views/forms/select/Aiint'))
 const Validation = React.lazy(() => import('./views/forms/validation/Validation'))
 
@@ -45,9 +44,8 @@ const Brands = React.lazy(() => import('./views/icons/brands/Brands'))
 
 // Notifications
 const Alerts = React.lazy(() => import('./views/notifications/alerts/Alerts'))
-const Badges = React.lazy(() => import('./views/notifications/badges/Badges'))
-const Modals = React.lazy(() => import('./views/notifications/modals/Modals'))
-const Toasts = React.lazy(() => import('./views/notifications/toasts/Toasts'))
+
+
 
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
@@ -87,11 +85,10 @@ const routes = [
   { path: '/forms', name: 'Interview', element: FormControl, exact: true },
   { path: '/forms/form-control', name: 'Mock Interview', element: FormControl },
   { path: '/forms/select', name: 'AI interview', element: Select },
-  { path: '/forms/checks-radios', name: 'company Interview', element: ChecksRadios },
-  { path: '/forms/range', name: 'Range', element: Range },
-  { path: '/forms/input-group', name: 'Input Group', element: InputGroup },
-  { path: '/forms/floating-labels', name: 'Floating Labels', element: FloatingLabels },
-  { path: '/forms/layout', name: 'Layout', element: Layout },
+
+  
+
+  
   { path: '/forms/validation', name: 'Validation', element: Validation },
   { path: '/icons', exact: true, name: 'Icons', element: CoreUIIcons },
   { path: '/icons/coreui-icons', name: 'CoreUI Icons', element: CoreUIIcons },
@@ -99,9 +96,9 @@ const routes = [
   { path: '/icons/brands', name: 'Brands', element: Brands },
   { path: '/notifications', name: 'Notifications', element: Alerts, exact: true },
   { path: '/notifications/alerts', name: 'Messages', element: Alerts },
-  { path: '/notifications/badges', name: 'Requests', element: Badges },
+  
   //{ path: '/notifications/modals', name: 'Modals', element: Modals },
-  { path: '/notifications/toasts', name: 'Toasts', element: Toasts },
+ 
   { path: '/widgets', name: 'Widgets', element: Widgets },
 
   // New route for the Submit page
