@@ -7,6 +7,8 @@ import userPerformanceRoutes from "./Routes/userPerformanceRouter.js";
 import bodyParser from "body-parser";
 import express from "express";
 import cors from "./Middlewares/cors.js";
+import speechRoutes from "./Routes/speechRouter.js";
+import geminiRoutes from "./Routes/geminiRouter.js";
 
 dotenv.config();
 connectDB();
@@ -23,6 +25,8 @@ app.use(bodyParser.json());
 app.use("/api/users", userRoutes);
 app.use("/api/questions", questionRoutes);
 app.use('/api/user-performance', userPerformanceRoutes);
+app.use('/api/speech', speechRoutes);
+app.use('/api/gemini', geminiRoutes);
 
 
 // error handler

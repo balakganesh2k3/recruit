@@ -1,14 +1,15 @@
 // App.js
-import React from 'react';
-import './apin.css';
-import RobotChatBubble from './apin';
+import React from 'react'
+import './apin.css'
+import RobotChatBubble from './apin'
+import RealTimeTranscription from './apin.js'
 
 function App() {
   return (
     <div className="App">
-      <RobotChatBubble />
+      <RealTimeTranscription />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

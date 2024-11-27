@@ -59,7 +59,7 @@ function Exam() {
   // Navigate to the submit page
   const handleSubmit = () => {
     const score = calculateScore() // Ensure the score is updated before submitting
-    navigate('/submit', { state: { score, totalQuestions: questions.length } })
+    navigate('/code', { state: { score, totalQuestions: questions.length } })
   }
 
   // Calculate the progress percentage

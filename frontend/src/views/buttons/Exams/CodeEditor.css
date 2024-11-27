@@ -1,0 +1,156 @@
+/* Root styling for the layout */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #1e293b; /* Dark matte blue background */
+  color: #ffffff; /* White text for contrast */
+}
+
+div {
+  box-sizing: border-box;
+}
+
+/* Styling for the Left Section (Exam Question) */
+div[style*="border-right"] {
+  background-color: #243b55; /* Slightly darker blue for separation */
+  color: #d1d5db; /* Muted white text */
+  border-right: 1px solid #374151; /* Subtle border */
+  padding: 20px;
+}
+
+h2 {
+  color: #93c5fd; /* Light blue for headers */
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* Styling for the Right Section (Code Editor and Output) */
+div[style*="flex: 2"] {
+  background-color: #1e293b; /* Matches the main theme */
+  color: #ffffff;
+}
+
+div[style*="padding: '10px', borderBottom"] {
+  border-bottom: 1px solid #374151;
+  background-color: #2a3e58; /* Slightly lighter blue for toolbar */
+}
+
+select, button {
+  padding: 8px 12px;
+  margin-right: 10px;
+  border: 1px solid #4b5563;
+  background-color: #374151; /* Darker matte buttons */
+  color: #d1d5db;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+select:hover, button:hover {
+  background-color: #475569; /* Slightly brighter hover state */
+}
+
+button {
+  background-color: #2563eb; /* Primary blue for Run Code */
+  color: white;
+}
+
+button:hover {
+  background-color: #1d4ed8; /* Slightly darker blue on hover */
+}
+
+/* Styling for the Code Editor */
+div[style*="height: '50vh'"] {
+  border: 1px solid #374151;
+  background-color: #0f172a; /* Darkest blue for editor area */
+}
+
+/* Styling for TestCaseResults Component */
+h4 {
+  margin: 0 0 10px;
+  color: #93c5fd; /* Light blue for headers */
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #2a3e58; /* Slightly lighter background */
+  border-radius: 4px;
+  border: 1px solid #374151;
+  transition: background-color 0.3s ease;
+}
+
+li:hover {
+  background-color: #344a64; /* Highlight on hover */
+}
+
+/* Loader Styling */
+.loader {
+  border: 6px solid #374151; /* Light border */
+  border-top: 6px solid #93c5fd; /* Blue spinner */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+/* Pre-styling for output sections */
+pre {
+  background-color: #1f2937; /* Dark gray for code results */
+  padding: 15px;
+  border-radius: 4px;
+  color: #d1d5db; /* Muted white */
+  overflow: auto;
+  font-size: 14px;
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #475569; /* Matte scrollbar */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #93c5fd; /* Slight highlight on hover */
+}
+
+  .loader{
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    animation: 0.8s linear infinite loader;
+    border: 8px solid rgba(255, 255, 255, 0.225);
+    border-left-color: white;
+    border-radius: 50%;
+  }
+
+  @keyframes loader {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
