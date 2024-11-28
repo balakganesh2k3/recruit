@@ -1,48 +1,60 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-// import '../colors/resumeup.css' // Import the CSS file
-import './resumeup.css'
+/* eslint-disable react/prop-types */
+import React, { useState } from 'react'
+import * as pdfjs from 'pdfjs-dist/build/pdf'
+import pdfWorker from 'pdfjs-dist/build/pdf.worker?url'
+
+pdfjs.GlobalWorkerOptions.workerSrc = pdfWorker
 
 const FileUpload = ({ setResumeData }) => {
-  const [resume, setResume] = useState(null);
-  const [resumeSize, setResumeSize] = useState(null);
-  const [jobDescription, setJobDescription] = useState('');
+  const [resumeText, setResumeText] = useState('')
+  const [resumeSize, setResumeSize] = useState(null)
+  const [jobDescription, setJobDescription] = useState('')
 
-  const handleResumeUpload = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append('resume', resume);
-    formData.append('jobDescription', jobDescription);
+  const handleFileChange = async (e) => {
+    const selectedFile = e.target.files[0]
+    if (selectedFile && selectedFile.type === 'application/pdf') {
+      setResumeSize((selectedFile.size / 1024).toFixed(2)) // Convert size to KB
 
-    try {
-      const res = await axios.post('http://localhost:5000/api/resume', formData);
-      setResumeData(res.data);
-      console.log(res.data);
-    } catch (error) {
-      console.error('Error uploading resume:', error);
+      // Extract text from the PDF
+      const text = await extractTextFromPDF(selectedFile)
+      setResumeText(text)
+      localStorage.setItem('uploadedResume', text)
+      console.log('Extracted Text:', text)
+    } else {
+      alert('Please upload a valid PDF file.')
     }
-  };
+  }
 
-  const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
-    if (selectedFile) {
-      setResume(selectedFile);
-      setResumeSize((selectedFile.size / 1024).toFixed(2)); // Convert size to KB and store
+  const extractTextFromPDF = async (file) => {
+    const arrayBuffer = await file.arrayBuffer()
+    const pdf = await pdfjs.getDocument({ data: arrayBuffer }).promise
+    let extractedText = ''
+
+    // Loop through all pages and extract text
+    for (let i = 1; i <= pdf.numPages; i++) {
+      const page = await pdf.getPage(i)
+      const textContent = await page.getTextContent()
+      const pageText = textContent.items.map((item) => item.str).join(' ')
+      extractedText += `${pageText} `
     }
-  };
+
+    return extractedText.trim()
+  }
+
+  const handleSubmit = () => {
+    localStorage.setItem('jobDescription', jobDescription)
+    console.log('Data saved to localStorage')
+  }
 
   return (
-    <form onSubmit={handleResumeUpload}>
+    <form>
       <div>
-        <input 
-          type="file" 
-          onChange={handleFileChange} 
-          required 
-        />
-        {resume && (
+        <input type="file" onChange={handleFileChange} accept="application/pdf" required />
+        {resumeSize && (
           <div>
-            <p><strong>File Name:</strong> {resume.name}</p>
-            <p><strong>File Size:</strong> {resumeSize} KB</p>
+            <p>
+              <strong>File Size:</strong> {resumeSize} KB
+            </p>
           </div>
         )}
       </div>
@@ -54,9 +66,18 @@ const FileUpload = ({ setResumeData }) => {
         required
       />
 
-      <button type="submit">Upload Resume & JD</button>
-    </form>
-  );
-};
+      <button type="button" onClick={handleSubmit}>
+        Save Data
+      </button>
 
-export default FileUpload;
+      {resumeText && (
+        <div>
+          <h3>Extracted Resume Text:</h3>
+          <pre>{resumeText}</pre>
+        </div>
+      )}
+    </form>
+  )
+}
+
+export default FileUpload

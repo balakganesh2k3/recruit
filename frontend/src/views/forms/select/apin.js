@@ -41,8 +41,21 @@ import React, { useEffect, useRef, useState } from 'react';
 const RealTimeTranscription = () => {
     const [transcript, setTranscript] = useState('');
     const [question, setQuestion] = useState('');
+    const [isListening, setIsListening] = useState(false);
+    const [allresponses, setAllResponses] = useState([]);
+    const [allquestions, setAllQuestions] = useState([]);
     const recognitionRef = useRef(null);
-    const silenceTimer = useRef(null);
+    const Resume = localStorage.getItem('uploadedResume');
+    const JobDescription = localStorage.getItem('jobDescription');
+
+    const toggleListening = () => {
+        if (isListening) {
+            stopListening();
+        } else {
+            startListening();
+        }
+        setIsListening(!isListening);
+    };
 
     const startListening = () => {
         if (!('SpeechRecognition' in window || 'webkitSpeechRecognition' in window)) {
@@ -61,9 +74,7 @@ const RealTimeTranscription = () => {
                 .map((result) => result[0].transcript)
                 .join('');
             setTranscript(newTranscript);
-
-            // Reset silence timer on every speech event
-            resetSilenceTimer(newTranscript);
+            setAllResponses([...allresponses, newTranscript]);
         };
 
         recognition.onerror = (event) => {
@@ -74,40 +85,67 @@ const RealTimeTranscription = () => {
         recognitionRef.current = recognition;
     };
 
-    const resetSilenceTimer = (currentTranscript) => {
-        if (silenceTimer.current) clearTimeout(silenceTimer.current);
-        silenceTimer.current = setTimeout(() => {
-            handleSilence(currentTranscript); // Handle silence after 2 seconds
-        }, 2000);
+    const stopListening = async () => {
+        if (recognitionRef.current) recognitionRef.current.stop();
+
+        if (transcript.trim()) {
+            try {
+                const response = await fetch('http://localhost:5000/api/gemini', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ transcription: transcript, resume: Resume, jobDescription: JobDescription }),
+                });
+                const data = await response.json();
+                setAllQuestions([...allquestions, data.question]);
+                setQuestion(data.question || 'No question received');
+                speakText(data.question || 'No question received'); // Read aloud the question
+            } catch (error) {
+                console.error('Error fetching question:', error);
+            } finally {
+                setTranscript(''); // Clear transcript after handling
+            }
+        }
     };
+    const getfeedback = async () => {
+        if (transcript.trim()) {
+            try {
+                const response = await fetch('http://localhost:5000/api/gemini/feedback', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ allquestions: allquestions, allresponses: allresponses, jobDescription: JobDescription }),
+                });
+                const data = await response.json();
+                setQuestion(data.question || 'No feedback received');
+                speakText(data.question || 'No feedback received'); // Read aloud the question
+            } catch (error) {
+                console.error('Error fetching feedback:', error);
+            } finally {
+                setTranscript(''); // Clear transcript after handling
+            }
+        }
+    }
 
-    const handleSilence = async (currentTranscript) => {
-        if (!currentTranscript.trim()) return; // Do nothing for empty input
-
-        try {
-            const response = await fetch('http://localhost:5000/api/gemini', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ transcript: currentTranscript }),
-            });
-            const data = await response.json();
-            setQuestion(data.question || 'No question received');
-            setTranscript(''); // Clear transcript after handling
-        } catch (error) {
-            console.error('Error fetching question:', error);
+    const speakText = (text) => {
+        if ('speechSynthesis' in window) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            speechSynthesis.speak(utterance);
+        } else {
+            alert('Your browser does not support text-to-speech.');
         }
     };
 
     useEffect(() => {
         return () => {
             if (recognitionRef.current) recognitionRef.current.stop();
-            if (silenceTimer.current) clearTimeout(silenceTimer.current);
         };
     }, []);
 
     return (
         <div>
-            <button onClick={startListening}>Start Listening</button>
+            <button onClick={toggleListening}>
+                {isListening ? 'Stop Listening' : 'Start Listening'}
+            </button>
             <p><strong>Transcript:</strong> {transcript}</p>
             <p><strong>Next Question:</strong> {question}</p>
         </div>
@@ -115,4 +153,3 @@ const RealTimeTranscription = () => {
 };
 
 export default RealTimeTranscription;
-
