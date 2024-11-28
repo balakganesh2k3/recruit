@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 // import React from 'react'
-// import './aiint.css'
+import './aiint.css'
 // import io from 'socket.io-client';
-// import avatarImage from '../../../assets/images/images.png' // Replace this with the path to your robot avatar image
+import avatarImage from '../../../assets/images/images.png' // Replace this with the path to your robot avatar image
 
 // function RobotChatBubble() {
 //   const [userInput, setUserInput] = useState('');
@@ -44,6 +44,7 @@ const RealTimeTranscription = () => {
     const [isListening, setIsListening] = useState(false);
     const [allresponses, setAllResponses] = useState([]);
     const [allquestions, setAllQuestions] = useState([]);
+    const [count, setCount] = useState(1);
     const recognitionRef = useRef(null);
     const Resume = localStorage.getItem('uploadedResume');
     const JobDescription = localStorage.getItem('jobDescription');
@@ -88,7 +89,15 @@ const RealTimeTranscription = () => {
     const stopListening = async () => {
         if (recognitionRef.current) recognitionRef.current.stop();
 
-        if (transcript.trim()) {
+        setCount(prevCount => prevCount + 1);
+        console.log(count);
+        if(count > 3){
+            await getfeedback();
+            speakText('Thankyou your interview has ended');
+            setCount(1);
+            return;
+        }
+        if (transcript.trim() && count <= 3) {
             try {
                 const response = await fetch('http://localhost:5000/api/gemini', {
                     method: 'POST',
@@ -115,6 +124,7 @@ const RealTimeTranscription = () => {
                     body: JSON.stringify({ allquestions: allquestions, allresponses: allresponses, jobDescription: JobDescription }),
                 });
                 const data = await response.json();
+                speakText("Thank you for your time. Here is some feedback for you.");
                 setQuestion(data.question || 'No feedback received');
                 speakText(data.question || 'No feedback received'); // Read aloud the question
             } catch (error) {
@@ -142,13 +152,27 @@ const RealTimeTranscription = () => {
     }, []);
 
     return (
-        <div>
-            <button onClick={toggleListening}>
+        <div className="chat-bubble-container">
+          <div className="chat-bubble">
+                  <img src={avatarImage} alt="Robot Avatar" className="robot-avatar" />
+                </div>
+                <div className="speech-box">
+                  <p>{count>=3 ? 'Feedback' : 'Question'}: {question}</p>
+
+                </div>
+            <button className="reply-button" onClick={toggleListening}>
                 {isListening ? 'Stop Listening' : 'Start Listening'}
             </button>
-            <p><strong>Transcript:</strong> {transcript}</p>
-            <p><strong>Next Question:</strong> {question}</p>
         </div>
+          //     <div className="chat-bubble-container">
+          //       <div className="chat-bubble">
+          //         <img src={avatarImage} alt="Robot Avatar" className="robot-avatar" />
+          //       </div>
+          //       <div className="speech-box">
+          //         <p>Hello! I’m here to help you with your interview preparation.</p>
+          //       </div>
+          //       <button className="reply-button" onClick={handleSpeech}>Speak your response</button>
+          //     </div>
     );
 };
 

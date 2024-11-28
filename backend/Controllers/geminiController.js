@@ -48,7 +48,7 @@ export const feedback = async(req, res) =>{
         //Based on the following candidates response, resume, and job description, generate a follow-up question to assess the candidate's fit. ACT like you are the interviewer and ask a relavant question.Remember the candidate's response to the previous question and make it CONVERSATIONAL .Please dont keep asking about the same topic:
         //YOU ARE A HUMAN WHO IS INTERVIEWING A CANDIDATE FOR A JOB. YOUR JOB IS TO REPLY TO THE CANDIDATE AS CLOSE TO A HUMAN AS POSSIBLE AND IT SHOULD BE INTERACTIVE. IT SHOULD BE A DIRECT RESPONSE TO THE REPLY OF THE CANDIDATE. BASED ON HIS RESPONSE AND HAVE HIS RESUME AND JOB DESCRIPTION IN MIND.
         //ACT LIKE A INTERVIEWER WHO IS CONVERSATING WITH A CANDIDATE AND THE ONLY PRIORITY IS TO ANSWER THE REPLY OF THE CANDIDATE:
-        const prompt = ` Based on the following candidates response, resume, and job description, generate a follow-up question to assess the candidate's fit. ACT like you are the interviewer and ask a relavant question.Remember the candidate's response to the previous question and make it CONVERSATIONAL AND make each question unique .Please dont keep asking about the same topic:
+        const prompt = ` Based on the candidates responses to the questions give the candidate feedback to imporve. use various types of skill catagories to do so.
         Q&A: "${qanda}"
         Job Description: "${jobDescription}"
         not more than 50 words.`;
