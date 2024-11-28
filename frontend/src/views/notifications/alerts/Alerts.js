@@ -1,38 +1,48 @@
 import React, { useState, useEffect } from "react";
-import "./alerts.css";
+import './alerts.css';
 
 function Inbox() {
   const [messages, setMessages] = useState([]);
   const [selectedMessage, setSelectedMessage] = useState(null);
 
   useEffect(() => {
-    const mockMessages = [
-      {
-        id: 1,
-        sender: "Admin",
-        subject: "Welcome to the platform!",
-        content: "Thank you for signing up. We hope you enjoy using our services.",
-        timestamp: "2024-11-19 10:00 AM",
-        isRead: false,
-      },
-      {
-        id: 2,
-        sender: "Exam Alerts",
-        subject: "Reminder: Upcoming Exam",
-        content: "Your next coding exam is scheduled for tomorrow at 3:00 PM.",
-        timestamp: "2024-11-18 5:00 PM",
-        isRead: true,
-      },
-      {
-        id: 3,
-        sender: "Admin",
-        subject: "New Message from Admin",
-        content: "Please check the updates in your dashboard.",
-        timestamp: "2024-11-17 2:30 PM",
-        isRead: false,
-      },
-    ];
-    setMessages(mockMessages);
+    const fetchMessages = async () => {
+      const mockMessages = await new Promise((resolve) =>
+        setTimeout(
+          () =>
+            resolve([
+              {
+                id: 1,
+                sender: "Admin",
+                subject: "Welcome!",
+                content: "Thank you for signing up. We hope you enjoy using our services.",
+                timestamp: "2024-11-19 10:00 AM",
+                isRead: false,
+              },
+              {
+                id: 2,
+                sender: "Exam Alerts",
+                subject: "Reminder: Upcoming Exam",
+                content: "Your next coding exam is scheduled for tomorrow at 3:00 PM.",
+                timestamp: "2024-11-18 5:00 PM",
+                isRead: true,
+              },
+              {
+                id: 3,
+                sender: "Admin",
+                subject: "New Message from Admin",
+                content: "Please check the updates in your dashboard.",
+                timestamp: "2024-11-17 2:30 PM",
+                isRead: false,
+              },
+            ]),
+          1000
+        )
+      );
+      setMessages(mockMessages);
+    };
+
+    fetchMessages();
   }, []);
 
   const handleSelectMessage = (message) => {

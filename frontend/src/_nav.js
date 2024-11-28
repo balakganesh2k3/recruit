@@ -14,9 +14,35 @@ import {
   cilStar,
 } from '@coreui/icons'
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
+import logo from "./assets/images/logo.jpg"
+import { combineReducers } from 'redux'
+
 
 const _nav = [
   {
+    // Logo Section
+    component: 'div', // Wrapper to display the logo
+    className: 'nav-logo',
+    custom: true, // This is a custom element, not a navigation item
+    children: (
+      <div style={{ textAlign: 'center', padding: '10px' }}>
+        <img
+          src={logo}
+          alt="Logo"
+          style={{
+            width: '150px',
+            height: 'auto',
+            borderRadius: '10px',
+            marginBottom: '10px',
+          }}
+        />
+      </div>
+    ),
+  },
+  
+  {
+
+
     component: CNavItem,
     name: 'Dashboard',
     to: '/dashboard',
@@ -93,11 +119,7 @@ const _nav = [
     to: '/buttons',
     icon: <CIcon icon={cilCursor} customClassName="nav-icon" />,
     items: [
-      {
-        component: CNavItem,
-        name: 'Mock Exam',
-        to: '/buttons/buttons',
-      },
+     
       {
         component: CNavItem,
         name: 'Exam',
@@ -111,11 +133,7 @@ const _nav = [
     name: 'Interview',
     icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
     items: [
-      {
-        component: CNavItem,
-        name: 'Mock Interview',
-        to: '/forms/form-control',
-      },
+   
       {
         component: CNavItem,
         name: 'AI interview',
@@ -142,16 +160,7 @@ const _nav = [
         name: 'Messages',
         to: '/notifications/alerts',
       },
-      {
-        component: CNavItem,
-        name: 'Requests',
-        to: '/notifications/badges',
-      },
-      {
-        component: CNavItem,
-        name: 'Progress',
-        to: '/notifications/modals',
-      },
+      
      
     ],
   },

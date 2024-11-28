@@ -1,143 +1,169 @@
-/* General Wrapper for Alignment */
+/* General Styles */
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #121212; /* Dark background for contrast */
-    color: #fff; /* Default text color */
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-  }
-  
-  /* Wrapper */
-  .inbox-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px auto;
-    width: 90%;
-  }
-  
-  /* Breadcrumb Navigation */
-  .breadcrumb {
-    margin-bottom: 20px;
-    color: #aaa;
-    font-size: 14px;
-  }
-  
-  .breadcrumb a {
-    text-decoration: none;
-    color: #4e9eff;
-    margin-right: 5px;
-    transition: color 0.3s ease;
-  }
-  
-  .breadcrumb a:hover {
-    color: #82cfff; /* Lighter hover color */
-  }
-  
-  /* Inbox Background */
-  .inbox-background {
-    padding: 20px;
-    background: linear-gradient(145deg, #1a1a1a, #242424); /* Subtle gradient */
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
-    width: 100%;
-    max-width: 800px;
-  }
-  
-  /* Inbox Container */
+  font-family: 'Roboto', sans-serif;
+  background-color: #121212; /* Dark theme background */
+  color: #f5f5f5; /* Light text for better contrast */
+  margin: 0;
+  padding: 0;
+}
+
+/* Inbox Container */
+.inbox-container {
+  margin: 20px auto;
+  width: 90%;
+  max-width: 1200px;
+  background: linear-gradient(145deg, #1f1f1f, #292929);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Inbox Header */
+.message-list h2,
+.message-detail h2 {
+  color: #4e9eff;
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #333;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #444;
+  color: #f0f0f0;
+}
+
+tbody tr {
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+tbody tr:hover {
+  background-color: #3d3d3d;
+  transform: scale(1.02);
+}
+
+tbody tr.unread {
+  font-weight: bold;
+  background-color: #2a2a2a;
+}
+
+tbody tr.read {
+  font-weight: normal;
+  color: #bbb;
+}
+
+td input[type="checkbox"] {
+  transform: scale(1.2);
+}
+
+/* Message Detail */
+.message-detail {
+  padding: 20px;
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.message-timestamp {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 15px;
+}
+
+.message-content {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Back Button */
+.back-button {
+  display: inline-block;
+  margin-top: 20px;
+  background: linear-gradient(145deg, #4e9eff, #3a7bcc);
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+  background: linear-gradient(145deg, #3a7bcc, #4e9eff);
+  transform: scale(1.05);
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #aaa;
+  display: flex;
+  gap: 5px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #4e9eff;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: #82cfff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .inbox-container {
-    background-color: #2e2e2e;
-    border-radius: 10px;
-    overflow: hidden;
+    width: 95%;
   }
-  
-  /* Inbox Table */
-  .inbox-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-    color: #fff;
+
+  th,
+  td {
+    padding: 10px;
   }
-  
-  .inbox-table thead {
-    background-color: #3e3e3e; /* Slightly darker for the header */
-    color: #fff;
-  }
-  
-  .inbox-table th,
-  .inbox-table td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #444; /* Divider lines for clarity */
-  }
-  
-  .inbox-table tbody tr {
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .inbox-table tbody tr.unread {
-    font-weight: bold;
-    background-color: #333;
-  }
-  
-  .inbox-table tbody tr.read {
-    font-weight: normal;
-    color: #bbb;
-  }
-  
-  .inbox-table tbody tr:hover {
-    background-color: #555; /* Enhanced hover effect */
-  }
-  
-  /* Message Detail View */
-  .message-detail {
-    color: #fff;
-  }
-  
-  .message-timestamp {
-    font-size: 12px;
-    color: #bbb;
-    margin-bottom: 10px;
-  }
-  
-  .message-content {
-    margin-bottom: 20px;
-    font-size: 15px;
-    line-height: 1.5;
-  }
-  
-  /* Back Button */
+
   .back-button {
-    background-color: #4e9eff;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  th,
+  td {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .message-content {
     font-size: 14px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
   }
-  
-  .back-button:hover {
-    background-color: #3a7bcc;
-    transform: scale(1.05); /* Slight zoom effect on hover */
+
+  .back-button {
+    padding: 6px 10px;
+    font-size: 12px;
   }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .inbox-wrapper {
-      width: 95%;
-    }
-  
-    .inbox-table th,
-    .inbox-table td {
-      padding: 10px;
-    }
-  
-    .breadcrumb {
-      font-size: 12px;
-    }
-  }
-  
+}
