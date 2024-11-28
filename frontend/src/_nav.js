@@ -104,11 +104,7 @@ const _nav = [
         name: 'C',
         to: '/base/paginations',
       },
-      {
-        component: CNavItem,
-        name: 'C++',
-        to: '/base/placeholders',
-      },
+     
       
       
     ],
