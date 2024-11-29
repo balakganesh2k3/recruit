@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import * as pdfjs from 'pdfjs-dist/build/pdf'
 import pdfWorker from 'pdfjs-dist/build/pdf.worker?url'
+import './resumeup.css';
 
 pdfjs.GlobalWorkerOptions.workerSrc = pdfWorker
 
